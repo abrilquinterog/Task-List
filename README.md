@@ -1,2 +1,2 @@
 # Task-List
-### Esta es una aplicación para crear y visualizar listas de tareas 
+### Esta es una aplicación creada con react para crear, visualizar y editar listas de tareas 
