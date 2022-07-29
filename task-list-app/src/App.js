@@ -2,10 +2,12 @@ import { useState, useEffect} from "react";
 import "./App.css";
 import TaskCreator from "./components/TaskCreator";
 import {TaskTable} from './components/TaskTable';
+import { VisibilityControl } from "./components/VisibilityControl";
 
 function App() {
 
   const [taskItems, setTaskItems] = useState([])
+  const [showCompleted, setShowCompleted] = useState(false)
 
   function createNewTask(taskName){
     if(!taskItems.find(task=> task.name===taskName)){
@@ -27,6 +29,11 @@ function App() {
 
   }, [ ])
 
+  const cleanTasks = () =>{
+    setTaskItems(taskItems.filter(task => !task.done))
+    setShowCompleted(false)
+  } 
+
   useEffect(() => {
       localStorage.setItem('tasks', JSON.stringify(taskItems))
   }, [ taskItems ])
@@ -35,10 +42,19 @@ function App() {
     <div className="App">
     <TaskCreator createNewTask={createNewTask}/>
     <TaskTable tasks={taskItems} toggleTask={toggleTask}/>
+    <VisibilityControl
+    isChecked={showCompleted}
+    setShowCompleted={(checked) => setShowCompleted(checked)} cleanTasks={cleanTasks}
+    />
+
     
-    <div>
-    </div>
-    <TaskTable tasks={taskItems} toggleTask={toggleTask} showCompleted={true} />    
+    {
+      showCompleted === true && (
+        
+    <TaskTable tasks={taskItems} toggleTask={toggleTask} showCompleted={showCompleted} />    
+
+      )
+    }
     </div>
   );
 }
