@@ -8,12 +8,16 @@ export const VisibilityControl = ({isChecked, setShowCompleted, cleanTasks}) => 
 
     return(
         <div>
-            <input type="checkbox" 
+            <div className="form-check form-switch">
+            <input 
+            className="form-check-input"
+            type="checkbox" 
             checked={isChecked}
             onChange={e=> setShowCompleted(e.target.checked)}
             />{" "} 
             <label>Show tasks done</label>
-            <button onClick={handleDelete}> Clear </button>
+            </div>
+            <button onClick={handleDelete} className="btn btn-danger"> Clear </button>
         </div>
     )
 }

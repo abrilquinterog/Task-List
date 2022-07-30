@@ -39,7 +39,8 @@ function App() {
   }, [ taskItems ])
 
   return (
-    <div className="App">
+    <div className="d-flex justify-content-center">
+    <main>
     <TaskCreator createNewTask={createNewTask}/>
     <TaskTable tasks={taskItems} toggleTask={toggleTask}/>
     <VisibilityControl
@@ -55,6 +56,7 @@ function App() {
 
       )
     }
+    </main>
     </div>
   );
 }
