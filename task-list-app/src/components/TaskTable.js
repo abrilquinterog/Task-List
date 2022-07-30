@@ -14,9 +14,9 @@ export const TaskTable = ({tasks, toggleTask, showCompleted = false}) => {
     }
     
     return (
-        <table>
+        <table className="table table-secondary table-striped-columns">
       <thead>
-        <tr>
+        <tr className="table-primary">
           <th>Tasks</th>
         </tr>
 

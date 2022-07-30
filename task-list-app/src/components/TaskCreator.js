@@ -19,7 +19,7 @@ const TaskCreator = ({createNewTask}) =>{
           value={newTaskName}
           onChange={(e) => setNewTaskName(e.target.value)}
         ></input>
-        <button>Save task</button>
+        <button className="btn btn-primary">Save task</button>
       </form>
     )
 }
